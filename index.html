@@ -171,8 +171,359 @@
 <div class="main">
   <!-- 学校列表 -->
   <div id="school-list">
-    <div class="section-title">🏫 招生学校列表</div>
-    <div class="school-grid" id="school-grid"></div>
+    <div class="section-title">🏫 招生学校列表（共25所）</div>
+    <div class="school-grid" id="school-grid">
+      <div class="school-card" onclick="filterBySchool(this)" data-school="长江大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">长江大学</div>
+            <div class="school-card-city">📍 荆州</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>84</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-gaoqi">高起本</span><span class="tag tag-benke">专升本</span><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北文理学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北文理学院</div>
+            <div class="school-card-city">📍 襄阳</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>57</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-gaoqi">高起本</span><span class="tag tag-zhuanke">专科</span><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北科技学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北科技学院</div>
+            <div class="school-card-city">📍 咸宁</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>53</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北理工学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北理工学院</div>
+            <div class="school-card-city">📍 黄石</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>51</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="武汉纺织大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">武汉纺织大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>48</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="三峡大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">三峡大学</div>
+            <div class="school-card-city">📍 宜昌</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>41</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="武汉科技大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">武汉科技大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>41</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-gaoqi">高起本</span><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北师范大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北师范大学</div>
+            <div class="school-card-city">📍 黄石</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>40</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北工业大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北工业大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>40</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北经济学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北经济学院</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>40</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="黄冈职业技术学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">黄冈职业技术学院</div>
+            <div class="school-card-city">📍 黄冈</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>36</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北汽车工业学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北汽车工业学院</div>
+            <div class="school-card-city">📍 十堰</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>35</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="黄冈师范学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">黄冈师范学院</div>
+            <div class="school-card-city">📍 黄冈</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>35</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="武汉工程大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">武汉工程大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>31</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北第二师范学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北第二师范学院</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>29</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="荆楚理工学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">荆楚理工学院</div>
+            <div class="school-card-city">📍 荆门</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>29</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="华中农业大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">华中农业大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>27</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-gaoqi">高起本</span><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北开放大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北开放大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>26</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-benke">专升本</span><span class="tag tag-gaoqi">高起本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="武汉轻工大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">武汉轻工大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>26</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="荆州职业技术学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">荆州职业技术学院</div>
+            <div class="school-card-city">📍 荆州</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>22</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="湖北中医药大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">湖北中医药大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>17</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span><span class="tag tag-gaoqi">高起本</span><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="荆州理工职业学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">荆州理工职业学院</div>
+            <div class="school-card-city">📍 荆州</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>17</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="武汉中南财经政法大学">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">武汉中南财经政法大学</div>
+            <div class="school-card-city">📍 武汉</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>16</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-benke">专升本</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="黄冈科技职业学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">黄冈科技职业学院</div>
+            <div class="school-card-city">📍 黄冈</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>11</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+      <div class="school-card" onclick="filterBySchool(this)" data-school="三峡电力职业学院">
+        <div class="school-card-header">
+          <div class="school-card-icon">🎓</div>
+          <div>
+            <div class="school-card-name">三峡电力职业学院</div>
+            <div class="school-card-city">📍 宜昌</div>
+          </div>
+        </div>
+        <div class="school-card-body">
+          <div class="school-card-stat">📚 招生专业 <strong>11</strong> 个</div>
+        </div>
+        <div class="school-card-levels"><span class="tag tag-zhuanke">专科</span></div>
+        <div class="school-card-arrow">→</div>
+      </div>
+    </div>
   </div>
 
   <!-- 专业查询 -->
@@ -243,7 +594,6 @@ let filteredData = [...SCHOOL_DATA];
 
 // 初始化
 function init() {
-  renderSchoolList();
   renderLevelFilters();
   renderCityFilters();
   renderFeeFilters();
@@ -260,47 +610,9 @@ function scrollToSection(id) {
   }
 }
 
-// 渲染学校列表卡片
-function renderSchoolList() {
-  const schoolMap = {};
-  SCHOOL_DATA.forEach(d => {
-    if (!schoolMap[d.school]) {
-      schoolMap[d.school] = { school:d.school, city:d.city, levels:new Set(), majorCount:0 };
-    }
-    schoolMap[d.school].levels.add(d.level);
-    schoolMap[d.school].majorCount++;
-  });
-
-  const schools = Object.values(schoolMap).sort((a,b) => b.majorCount - a.majorCount);
-  const grid = document.getElementById('school-grid');
-
-  grid.innerHTML = schools.map(s => {
-    const levelTags = [...s.levels].map(l => {
-      const cls = {'专升本':'tag-benke','专科':'tag-zhuanke','高起本':'tag-gaoqi'}[l] || '';
-      return `<span class="tag ${cls}">${l}</span>`;
-    }).join('');
-
-    return `
-      <div class="school-card" onclick="filterBySchool('${s.school}')">
-        <div class="school-card-header">
-          <div class="school-card-icon">🎓</div>
-          <div>
-            <div class="school-card-name">${s.school}</div>
-            <div class="school-card-city">📍 ${s.city}</div>
-          </div>
-        </div>
-        <div class="school-card-body">
-          <div class="school-card-stat">📚 招生专业 <strong>${s.majorCount}</strong> 个</div>
-        </div>
-        <div class="school-card-levels">${levelTags}</div>
-        <div class="school-card-arrow">→</div>
-      </div>
-    `;
-  }).join('');
-}
-
 // 点击学校卡片 -> 查询该学校专业
-function filterBySchool(schoolName) {
+function filterBySchool(el) {
+  var schoolName = el.getAttribute('data-school');
   document.getElementById('search-input').value = schoolName;
   document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
   applyFilters();
