@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小麦课堂 - 湖北成人高考学校查询</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Microsoft YaHei','PingFang SC',sans-serif; background:#f0f2f5; color:#333; }
+
+  /* Header */
+  .header { background:linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%); color:#fff; padding:0; position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,.15); }
+  .header-top { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:18px 20px; }
+  .logo { display:flex; align-items:center; gap:12px; }
+  .logo-icon { font-size:36px; }
+  .logo-text { font-size:28px; font-weight:700; letter-spacing:2px; }
+  .logo-sub { font-size:13px; opacity:.8; margin-top:2px; }
+  .header-contact { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.15); padding:8px 18px; border-radius:30px; font-size:15px; }
+  .header-contact a { color:#ffd700; text-decoration:none; font-weight:700; font-size:17px; }
+  .header-contact a:hover { color:#fff; }
+
+  /* Nav */
+  .nav-bar { background:rgba(0,0,0,.15); padding:0 20px; }
+  .nav-inner { max-width:1200px; margin:0 auto; display:flex; gap:30px; }
+  .nav-inner a { color:rgba(255,255,255,.85); text-decoration:none; padding:12px 0; font-size:14px; border-bottom:2px solid transparent; transition:.2s; }
+  .nav-inner a:hover { color:#fff; border-bottom-color:#ffd700; }
+
+  /* Hero */
+  .hero { background:linear-gradient(135deg,#e8f0fe 0%,#f0f7ff 100%); padding:50px 20px; text-align:center; border-bottom:1px solid #e0e0e0; }
+  .hero h1 { font-size:36px; color:#1a73e8; margin-bottom:12px; }
+  .hero p { font-size:16px; color:#666; max-width:700px; margin:0 auto 20px; line-height:1.8; }
+  .hero-stats { display:flex; justify-content:center; gap:40px; margin-top:25px; flex-wrap:wrap; }
+  .hero-stat { text-align:center; }
+  .hero-stat-num { font-size:32px; font-weight:700; color:#1a73e8; }
+  .hero-stat-label { font-size:13px; color:#888; margin-top:4px; }
+
+  /* Main */
+  .main { max-width:1200px; margin:30px auto; padding:0 20px; }
+
+  /* Filters */
+  .filters { background:#fff; border-radius:12px; padding:24px; margin-bottom:24px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .filters-title { font-size:16px; font-weight:700; color:#333; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .filter-row { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; align-items:center; }
+  .filter-label { font-size:13px; color:#666; min-width:60px; font-weight:600; }
+  .filter-group { display:flex; flex-wrap:wrap; gap:8px; }
+  .filter-btn { padding:6px 16px; border:1px solid #ddd; border-radius:20px; background:#fff; font-size:13px; cursor:pointer; transition:.2s; color:#555; }
+  .filter-btn:hover { border-color:#1a73e8; color:#1a73e8; }
+  .filter-btn.active { background:#1a73e8; color:#fff; border-color:#1a73e8; }
+  .search-box { flex:1; min-width:200px; position:relative; }
+  .search-box input { width:100%; padding:10px 16px 10px 40px; border:1px solid #ddd; border-radius:8px; font-size:14px; outline:none; transition:.2s; }
+  .search-box input:focus { border-color:#1a73e8; box-shadow:0 0 0 3px rgba(26,115,232,.1); }
+  .search-box::before { content:'🔍'; position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:14px; }
+  .filter-actions { display:flex; gap:10px; align-items:center; }
+  .btn-reset { padding:8px 18px; border:1px solid #ddd; border-radius:8px; background:#f5f5f5; font-size:13px; cursor:pointer; color:#666; }
+  .btn-reset:hover { background:#e8e8e8; }
+
+  /* Results info */
+  .results-info { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .results-count { font-size:14px; color:#666; }
+  .results-count strong { color:#1a73e8; font-size:18px; }
+
+  /* Table */
+  .table-wrapper { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  table { width:100%; border-collapse:collapse; }
+  thead { background:linear-gradient(135deg,#1a73e8,#0d47a1); }
+  thead th { color:#fff; padding:14px 16px; text-align:left; font-size:13px; font-weight:600; white-space:nowrap; }
+  tbody td { padding:13px 16px; font-size:13px; border-bottom:1px solid #f0f0f0; }
+  tbody tr:hover { background:#f8fbff; }
+  tbody tr:last-child td { border-bottom:none; }
+
+  .tag { display:inline-block; padding:3px 10px; border-radius:12px; font-size:12px; font-weight:600; }
+  .tag-benke { background:#e8f5e9; color:#2e7d32; }
+  .tag-zhuanke { background:#fff3e0; color:#e65100; }
+  .tag-gaoqi { background:#f3e5f5; color:#6a1b9a; }
+  .tag-city { background:#e3f2fd; color:#1565c0; font-size:12px; padding:2px 8px; border-radius:4px; }
+
+  .tuition { color:#e65100; font-weight:700; }
+  .total-tuition { color:#c62828; font-weight:700; }
+
+  /* Pagination */
+  .pagination { display:flex; justify-content:center; align-items:center; gap:8px; margin:30px 0; }
+  .page-btn { padding:8px 14px; border:1px solid #ddd; border-radius:6px; background:#fff; cursor:pointer; font-size:13px; color:#555; transition:.2s; }
+  .page-btn:hover:not(:disabled) { border-color:#1a73e8; color:#1a73e8; }
+  .page-btn.active { background:#1a73e8; color:#fff; border-color:#1a73e8; }
+  .page-btn:disabled { opacity:.4; cursor:not-allowed; }
+  .page-info { font-size:13px; color:#888; margin:0 10px; }
+
+  /* Footer */
+  .footer { background:#1a2332; color:#aaa; padding:40px 20px 30px; margin-top:50px; text-align:center; }
+  .footer-inner { max-width:1200px; margin:0 auto; }
+  .footer-phone { font-size:22px; color:#ffd700; font-weight:700; margin:10px 0; }
+  .footer-phone a { color:#ffd700; text-decoration:none; }
+  .footer-copy { font-size:12px; color:#666; margin-top:15px; }
+
+  /* Empty state */
+  .empty-state { text-align:center; padding:60px 20px; color:#999; }
+  .empty-state-icon { font-size:48px; margin-bottom:15px; }
+  .empty-state-text { font-size:15px; }
+
+  /* Responsive */
+  @media(max-width:768px){
+    .header-top { flex-direction:column; gap:10px; }
+    .hero h1 { font-size:24px; }
+    .hero-stats { gap:20px; }
+    .filter-row { flex-direction:column; align-items:flex-start; }
+    .filter-label { min-width:auto; }
+    .table-wrapper { overflow-x:auto; }
+    table { min-width:700px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="logo">
+      <span class="logo-icon">🎓</span>
+      <div>
+        <div class="logo-text">小麦课堂</div>
+        <div class="logo-sub">湖北成人高考 · 升学规划专家</div>
+      </div>
+    </div>
+    <div class="header-contact">
+      <span>📞 咨询热线：</span>
+      <a href="tel:15971388880">15971388880</a>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <div class="nav-inner">
+      <a href="#">首页</a>
+      <a href="#">学校查询</a>
+      <a href="#">专业大全</a>
+      <a href="#">费用参考</a>
+      <a href="#">报考指南</a>
+      <a href="#">关于我们</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>🎓 湖北成人高考学校专业查询</h1>
+  <p>覆盖湖北省25所高校、863个招生专业，一站式查询学校、层次、专业、学制、学费等信息，助您轻松择校报考</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num" id="stat-schools">-</div><div class="hero-stat-label">招生高校</div></div>
+    <div class="hero-stat"><div class="hero-stat-num" id="stat-majors">-</div><div class="hero-stat-label">招生专业</div></div>
+    <div class="hero-stat"><div class="hero-stat-num" id="stat-cities">-</div><div class="hero-stat-label">覆盖城市</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">2026</div><div class="hero-stat-label">招生年度</div></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="filters">
+    <div class="filters-title">🔎 筛选条件</div>
+    <div class="filter-row">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="输入学校名称或专业名称搜索...">
+      </div>
+      <div class="filter-actions">
+        <button class="btn-reset" onclick="resetFilters()">重置筛选</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">办学层次：</span>
+      <div class="filter-group" id="filter-level"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">所在城市：</span>
+      <div class="filter-group" id="filter-city"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">学费范围：</span>
+      <div class="filter-group" id="filter-fee"></div>
+    </div>
+  </div>
+
+  <div class="results-info">
+    <div class="results-count">共找到 <strong id="result-count">0</strong> 条匹配结果</div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>学校名称</th>
+          <th>城市</th>
+          <th>层次</th>
+          <th>专业名称</th>
+          <th>学制(年)</th>
+          <th>年学费(元)</th>
+          <th>总学费(元)</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<div class="footer">
+  <div class="footer-inner">
+    <div style="font-size:18px;color:#fff;font-weight:700;">🎓 小麦课堂 · 湖北成人高考升学服务</div>
+    <div class="footer-phone">咨询电话：<a href="tel:15971388880">15971388880</a></div>
+    <div>专业成人高考报名指导 · 学校专业查询 · 学费标准参考 · 报考政策解读</div>
+    <div class="footer-copy">© 2026 小麦课堂 版权所有 | 本网站数据仅供参考，具体以各高校官方招生简章为准</div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const PAGE_SIZE = 20;
+let currentPage = 1;
+let filteredData = [...SCHOOL_DATA];
+
+// 初始化
+function init() {
+  renderLevelFilters();
+  renderCityFilters();
+  renderFeeFilters();
+  updateStats();
+  bindEvents();
+  applyFilters();
+}
+
+function updateStats() {
+  const schools = new Set(SCHOOL_DATA.map(d => d.school));
+  const cities = new Set(SCHOOL_DATA.map(d => d.city));
+  document.getElementById('stat-schools').textContent = schools.size;
+  document.getElementById('stat-majors').textContent = SCHOOL_DATA.length;
+  document.getElementById('stat-cities').textContent = cities.size;
+}
+
+function renderLevelFilters() {
+  const levels = ['专升本', '高起本', '专科'];
+  const container = document.getElementById('filter-level');
+  container.innerHTML = levels.map(l => `<button class="filter-btn" data-level="${l}">${l}</button>`).join('');
+  container.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.onclick = () => {
+      btn.classList.toggle('active');
+      applyFilters();
+    };
+  });
+}
+
+function renderCityFilters() {
+  const cities = [...new Set(SCHOOL_DATA.map(d => d.city))].sort();
+  const container = document.getElementById('filter-city');
+  container.innerHTML = cities.map(c => `<button class="filter-btn" data-city="${c}">${c}</button>`).join('');
+  container.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.onclick = () => {
+      btn.classList.toggle('active');
+      applyFilters();
+    };
+  });
+}
+
+function renderFeeFilters() {
+  const ranges = [
+    { label: '2000以下', min: 0, max: 1999 },
+    { label: '2000-2500', min: 2000, max: 2500 },
+    { label: '2500-3000', min: 2501, max: 3000 },
+    { label: '3000以上', min: 3001, max: 99999 },
+  ];
+  const container = document.getElementById('filter-fee');
+  container.innerHTML = ranges.map((r, i) => `<button class="filter-btn" data-fee="${i}">${r.label}</button>`).join('');
+  container.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.onclick = () => {
+      btn.classList.toggle('active');
+      applyFilters();
+    };
+  });
+}
+
+function bindEvents() {
+  document.getElementById('search-input').addEventListener('input', debounce(applyFilters, 300));
+}
+
+function debounce(fn, delay) {
+  let timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, arguments), delay);
+  };
+}
+
+function getActiveValues(group) {
+  return [...document.querySelectorAll(`#filter-${group} .filter-btn.active`)].map(b => b.dataset[group]);
+}
+
+function applyFilters() {
+  const keyword = document.getElementById('search-input').value.trim().toLowerCase();
+  const levels = getActiveValues('level');
+  const cities = getActiveValues('city');
+  const fees = getActiveValues('fee');
+  const feeRanges = [
+    { min: 0, max: 1999 },
+    { min: 2000, max: 2500 },
+    { min: 2501, max: 3000 },
+    { min: 3001, max: 99999 },
+  ];
+
+  filteredData = SCHOOL_DATA.filter(item => {
+    if (keyword && !item.school.toLowerCase().includes(keyword) && !item.major.toLowerCase().includes(keyword)) return false;
+    if (levels.length && !levels.includes(item.level)) return false;
+    if (cities.length && !cities.includes(item.city)) return false;
+    if (fees.length) {
+      const match = fees.some(f => {
+        const r = feeRanges[parseInt(f)];
+        return item.tuition >= r.min && item.tuition <= r.max;
+      });
+      if (!match) return false;
+    }
+    return true;
+  });
+
+  currentPage = 1;
+  renderTable();
+  renderPagination();
+}
+
+function resetFilters() {
+  document.getElementById('search-input').value = '';
+  document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
+  applyFilters();
+}
+
+function getLevelTag(level) {
+  const map = { '专升本': 'tag-benke', '专科': 'tag-zhuanke', '高起本': 'tag-gaoqi' };
+  const cls = map[level] || '';
+  return `<span class="tag ${cls}">${level}</span>`;
+}
+
+function renderTable() {
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const pageData = filteredData.slice(start, end);
+  const tbody = document.getElementById('tbody');
+  document.getElementById('result-count').textContent = filteredData.length;
+
+  if (pageData.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><div class="empty-state-icon">😔</div><div class="empty-state-text">没有找到匹配的结果，请尝试调整筛选条件</div></div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = pageData.map(item => `
+    <tr>
+      <td><strong>${item.school}</strong></td>
+      <td><span class="tag tag-city">${item.city}</span></td>
+      <td>${getLevelTag(item.level)}</td>
+      <td>${item.major}</td>
+      <td>${item.duration}</td>
+      <td class="tuition">¥${item.tuition.toLocaleString()}</td>
+      <td class="total-tuition">¥${item.total_tuition.toLocaleString()}</td>
+    </tr>
+  `).join('');
+}
+
+function renderPagination() {
+  const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
+  const container = document.getElementById('pagination');
+  if (totalPages <= 1) { container.innerHTML = ''; return; }
+
+  let html = `<button class="page-btn" ${currentPage===1?'disabled':''} onclick="goPage(${currentPage-1})">上一页</button>`;
+  const maxShow = 7;
+  let start = Math.max(1, currentPage - 3);
+  let end = Math.min(totalPages, start + maxShow - 1);
+  start = Math.max(1, end - maxShow + 1);
+  if (start > 1) html += `<button class="page-btn" onclick="goPage(1)">1</button>${start>2?'<span style="color:#999">...</span>':''}`;
+  for (let i = start; i <= end; i++) {
+    html += `<button class="page-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+  }
+  if (end < totalPages) html += `${end<totalPages-1?'<span style="color:#999">...</span>':''}<button class="page-btn" onclick="goPage(${totalPages})">${totalPages}</button>`;
+  html += `<button class="page-btn" ${currentPage===totalPages?'disabled':''} onclick="goPage(${currentPage+1})">下一页</button>`;
+  html += `<span class="page-info">第 ${currentPage}/${totalPages} 页</span>`;
+  container.innerHTML = html;
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(filteredData.length / PAGE_SIZE);
+  if (p < 1 || p > totalPages) return;
+  currentPage = p;
+  renderTable();
+  renderPagination();
+  window.scrollTo({ top: 300, behavior: 'smooth' });
+}
+
+init();
+</script>
+</body>
+</html>
